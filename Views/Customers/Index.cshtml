@@ -1,0 +1,59 @@
+﻿@model IEnumerable<BeautySalon.Models.Customer>
+
+@{
+    ViewBag.Title = "Customers";
+    int serial = 1; 
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2 class="text-primary">Customer List</h2>
+
+        <a href="@Url.Action("Create")" class="btn btn-success">
+            <i class="bi bi-plus-circle"></i> Create New
+        </a>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-body p-0">
+            <table class="table table-striped table-hover mb-0">
+                <thead class="table-primary">
+                    <tr>
+                        <th>SL</th> <!-- serial number -->
+                        <th>@Html.DisplayNameFor(model => model.Code)</th>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Email)</th>
+                        <th>@Html.DisplayNameFor(model => model.Phone)</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@serial</td> <!-- show serial -->
+                            <td>@Html.DisplayFor(m => item.Code)</td>
+                            <td>@Html.DisplayFor(m => item.Name)</td>
+                            <td>@Html.DisplayFor(m => item.Email)</td>
+                            <td>@Html.DisplayFor(m => item.Phone)</td>
+
+                            <td class="text-center">
+                                <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-sm btn-warning me-1">
+                                    Edit
+                                </a>
+                                <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-sm btn-info me-1 text-white">
+                                    Details
+                                </a>
+                                <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-sm btn-danger">
+                                    Delete
+                                </a>
+                            </td>
+                        </tr>
+                        serial++; 
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

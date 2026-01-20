@@ -1,0 +1,120 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #f8c0d8, #ffe6f2);
+        padding: 80px 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+        margin-bottom: 50px;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+        font-weight: 800;
+        color: #b0005c;
+    }
+
+    .card-custom {
+        transition: 0.3s;
+        border: none;
+        border-radius: 15px;
+    }
+
+        .card-custom:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+    .icon-circle {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 32px;
+        margin: 0 auto 15px;
+        color: white;
+    }
+
+    .icon-services {
+        background: #28a745;
+    }
+
+    .icon-customers {
+        background: #17a2b8;
+    }
+
+    .icon-appointments {
+        background: #ffc107;
+    }
+</style>
+
+<main class="container mt-5">
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <h1 class="hero-title">Welcome to Our Salon App</h1>
+        <p class="lead mt-3">
+            Manage Services, Customers, and Appointments
+        </p>
+        <a href="@Url.Action("Index", "Services")" class="btn btn-lg btn-primary mt-3 px-4 py-2 shadow">
+            Get Started
+        </a>
+    </section>
+
+    <!-- Feature Cards -->
+    <div class="row text-center">
+        <!-- Services -->
+        <div class="col-md-4 mb-4">
+            <div class="card card-custom h-100 shadow-sm p-3">
+                <div class="icon-circle icon-services">
+                    <i class="bi bi-scissors"></i>
+                </div>
+                <div class="card-body">
+                    <h3 class="text-success fw-bold">Services</h3>
+                    <p>Manage and customize your salon services easily.</p>
+                    <a href="@Url.Action("Index", "Services")" class="btn btn-outline-success">
+                        Manage Services
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Customers -->
+        <div class="col-md-4 mb-4">
+            <div class="card card-custom h-100 shadow-sm p-3">
+                <div class="icon-circle icon-customers">
+                    <i class="bi bi-people"></i>
+                </div>
+                <div class="card-body">
+                    <h3 class="text-info fw-bold">Customers</h3>
+                    <p>Track and manage your customers' information smoothly.</p>
+                    <a href="@Url.Action("Index", "Customers")" class="btn btn-outline-info">
+                        Manage Customers
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Appointments -->
+        <div class="col-md-4 mb-4">
+            <div class="card card-custom h-100 shadow-sm p-3">
+                <div class="icon-circle icon-appointments">
+                    <i class="bi bi-calendar-check"></i>
+                </div>
+                <div class="card-body">
+                    <h3 class="text-warning fw-bold">Appointments</h3>
+                    <p>Schedule and manage appointments efficiently.</p>
+                    <a href="@Url.Action("Index", "Appointments")" class="btn btn-outline-warning">
+                        Manage Appointments
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>

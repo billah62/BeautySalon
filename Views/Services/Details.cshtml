@@ -1,0 +1,37 @@
+﻿@model BeautySalon.Models.Service
+
+@{
+    ViewBag.Title = "Service Details";
+}
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+
+            <h3 class="text-primary mb-3">Service Details</h3>
+
+            <div class="card shadow-sm">
+                <div class="card-body">
+
+                    <dl class="row">
+                        <dt class="col-sm-3">Name</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(m => m.Name)</dd>
+
+                        <dt class="col-sm-3">Duration</dt>
+                        <dd class="col-sm-9">@Html.DisplayFor(m => m.Duration) minutes</dd>
+
+                        <dt class="col-sm-3">Price</dt>
+                        <dd class="col-sm-9">BDT @Model.price.ToString("N2")</dd>
+                    </dl>
+
+                    <div class="text-end mt-3">
+                        <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning me-2">Edit</a>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

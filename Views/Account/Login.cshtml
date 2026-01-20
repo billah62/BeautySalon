@@ -1,0 +1,84 @@
+﻿@model BeautySalon.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<style>
+    body {
+        background: linear-gradient(135deg, #ffe6f2, #f8c0d8);
+        min-height: 100vh;
+    }
+
+    .login-container {
+        max-width: 450px;
+        margin: 80px auto;
+    }
+
+    .login-card {
+        padding: 40px;
+        border-radius: 18px;
+        background: #ffffff;
+        border: none;
+        box-shadow: 0 10px 30px rgba(216, 27, 96, 0.2);
+    }
+
+    .login-title {
+        font-weight: 800;
+        color: #d81b60;
+    }
+
+    .form-label {
+        color: #9c27b0;
+        font-weight: 600;
+    }
+
+    .btn-login {
+        background: #d81b60;
+        border: none;
+        font-size: 18px;
+        padding: 10px;
+        border-radius: 10px;
+        font-weight: bold;
+        box-shadow: 0 4px 12px rgba(216, 27, 96, 0.4);
+        transition: 0.3s;
+    }
+
+        .btn-login:hover {
+            background: #b0004f;
+            box-shadow: 0 6px 16px rgba(176, 0, 79, 0.5);
+        }
+</style>
+
+<div class="container login-container">
+    <div class="card login-card">
+
+        <h2 class="text-center login-title mb-4">Login</h2>
+
+        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+            <!-- Email -->
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Email, new { @class = "form-label" })
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter your email" })
+                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3">
+                @Html.LabelFor(m => m.Password, new { @class = "form-label" })
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Enter your password" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+
+            <!-- Login Button -->
+            <div class="d-grid mt-4">
+                <button type="submit" class="btn btn-login text-white">
+                    Login
+                </button>
+            </div>
+        }
+    </div>
+</div>

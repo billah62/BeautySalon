@@ -1,0 +1,38 @@
+﻿@model BeautySalon.Models.Appointment
+@{
+    ViewBag.Title = "Appointment Details";
+}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <h3 class="text-primary mb-3">Appointment Details</h3>
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-4">Customer</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(m => m.Customer.Name)</dd>
+                        <dt class="col-sm-4">Service</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(m => m.Service.Name)</dd>
+                        <dt class="col-sm-4">Appointment Date</dt>
+                        <dd class="col-sm-8">@Model.AppointmentDate.ToString("dd MMM yyyy, hh:mm tt")</dd>
+                        <dt class="col-sm-4">Approved</dt>
+                        <dd class="col-sm-8">
+                            @if (Model.IsApproved)
+                            {
+                                <span class="badge bg-success">Yes</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-warning text-dark">Pending</span>
+                            }
+                        </dd>
+                    </dl>
+                    <div class="text-end mt-3">
+                        <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-warning me-2">Edit</a>
+                        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

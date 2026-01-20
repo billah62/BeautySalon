@@ -27,4 +27,4 @@ A web application for managing Beauty Salon services built with **ASP.NET MVC**.
 ### Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/<username>/BeautySalonMVC.git
+  git clone https://github.com/billah62/BeautySalon.git

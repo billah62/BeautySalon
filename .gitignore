@@ -1,0 +1,23 @@
+# Visual Studio files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+Debug/
+Release/
+
+# Packages
+packages/
+*.nupkg
+!packages/repositories.config
+
+# IIS
+*.log
+App_Data/
+
+# Others
+.vs/
